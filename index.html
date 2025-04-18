@@ -1,105 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mining Optimization</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Ensures the footer stays at the bottom */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex: 1;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mining Optimization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    #app-content {
+      display: none;
+    }
+
+    .error-msg {
+      display: none;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <!-- Hero Section -->
-    <header
-        class="relative bg-cover bg-center h-screen flex items-center justify-center text-white"
-        style="background-image: url('img/img.png');"
-    >
-        <div class="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0"></div>
-        
-        <!-- Left Logo Positioned in the Top Left -->
-<!--         <img src="img/ck.png" alt="Left Logo" class="absolute top-6 left-6 w-32 h-auto" /> -->
 
-        <!-- Right Logo Positioned in the Top Right -->
-<!--         <img src="img/bib.png" alt="Right Logo" class="absolute top-6 right-6 w-32 h-auto" /> -->
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="flex items-center justify-center min-h-screen w-full bg-cover bg-center text-white fixed top-0 left-0 z-50 px-4" style="background-image: url('img/img.png');">
+    <div class="absolute inset-0 bg-black opacity-60 z-0"></div>
+    <div class="relative z-10 bg-white text-gray-900 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl w-full max-w-sm">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-center">Login to Access Dashboard</h2>
+      <form id="login-form">
+        <label class="block mb-2 text-sm font-medium">Username</label>
+        <input id="username" type="text" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your username" required />
 
-        <div class="relative text-center px-6">
-            <h1 class="text-5xl font-bold mb-4">Welcome to Mining Optimization CK-BIB</h1>
-            <p class="text-lg mb-6">Optimizing processes for a sustainable mining future</p>
-            <button
-                onclick="document.getElementById('links-section').scrollIntoView({ behavior: 'smooth' });"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300"
-            >
-                Explore Our Dashboard
-            </button>
-        </div>
+        <label class="block mb-2 text-sm font-medium">Password</label>
+        <input id="password" type="password" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your password" required />
+
+        <p id="error" class="error-msg text-red-600 mb-4 text-sm">Invalid username or password</p>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm sm:text-base">Login</button>
+      </form>
+
+      <!-- Footer for login screen -->
+      <div class="mt-6 text-center text-xs text-gray-500">
+        PT. Ciptakridatama <br> Mining Optimization CK BIB
+      </div>
+    </div>
+  </div>
+
+  <!-- WELCOME POPUP -->
+  <div id="welcome-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden px-4">
+    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4">Welcome!</h2>
+      <p class="mb-6 text-sm sm:text-base" id="welcome-message">You have successfully logged in.</p>
+      <button id="close-popup" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Continue</button>
+    </div>
+  </div>
+
+  <!-- APP CONTENT -->
+  <div id="app-content">
+
+    <!-- LOGOUT BUTTON -->
+    <div class="absolute top-4 right-4 z-50">
+      <button id="logout-btn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow text-sm sm:text-base">
+        Logout
+      </button>
+    </div>
+
+    <header class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('img/img.png');">
+      <div class="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0"></div>
+      <div class="relative text-center px-6">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Welcome to Mining Optimization CK-BIB</h1>
+        <p class="text-sm sm:text-base md:text-lg mb-6">Optimizing processes for a sustainable mining future</p>
+        <button onclick="document.getElementById('links-section').scrollIntoView({ behavior: 'smooth' });"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md transition duration-300 text-sm sm:text-base">
+          Explore Our Dashboard
+        </button>
+      </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-4 py-10">
-        <!-- Introduction Section -->
-        <section class="text-center mb-10">
-            <h2 class="text-2xl font-semibold">Explore the Dashboard</h2>
-            <p class="mt-4 text-gray-600">Discover tools, insights, and solutions tailored to optimize mining operations effectively and sustainably.</p>
-        </section>
+      <section class="text-center mb-10">
+        <h2 class="text-xl sm:text-2xl font-semibold">Explore the Dashboard</h2>
+        <p class="mt-4 text-gray-600 text-sm sm:text-base">Discover tools, insights, and solutions tailored to optimize mining operations effectively and sustainably.</p>
+      </section>
 
-
-        <!-- Links Section -->
-        <section id="links-section" class="bg-white shadow-md rounded-[20px] p-8 mx-auto max-w-2xl mt-10">
-            <div class="space-y-4">
-                <a href="https://shorturl.at/TAN60" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Daily Performance
-                </a>
-                <a href="https://shorturl.at/zxWAo" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Production Performance
-                </a>
-                <a href="https://shorturl.at/CFBzx" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Productivity Performance
-                </a>
-                <a href="https://shorturl.at/WosaC" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Monitoring Population Unit
-                </a>
-                <a href="https://shorturl.at/c2tJZ" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Monitoring Shipping and Delivery Unit
-                </a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMzQ5ZTYxZGUtOWQxYy00YTkyLWE4ZjQtOGY5YWE5M2IyM2NhIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">
-                    Monitoring Operator Daily Productivity 
-                </a>
-                <a href="https://shorturl.at/m0xOo" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    Monitoring Last-First Bucket
-                </a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMGI3NTM4ZDYtMThkNC00N2NjLWI0ZDUtNGMxMDBjZTVjYzBiIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    Monitoring Rental Equipments
-                </a>
-                <a href="https://shorturl.at/al6Jc" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    Monitoring Position PIT Unit 
-                </a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiYzE1MTY0NGUtYTFjMC00ZmFmLTk5ZjgtNmYzMjg2MjQ1OWQ5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    Monitoring Event Unit 
-                </a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMjQ2ZGFkNWMtNjExYS00NDY0LTlkNGYtYzc1NmY1NmEzYWZjIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    Monitoring Data CSIS
-                </a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMmI4NGY1ZDktNjk4MS00NjYxLWFlODMtOTQyNmM5YTRmNjE5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
-                    MOVE Dashboard
-                </a>
-            </div>
-        </section>
+      <!-- LINKS SECTION -->
+      <section id="links-section" class="bg-white shadow-md rounded-2xl p-6 sm:p-8 mx-auto max-w-2xl mt-10">
+        <div class="space-y-4 text-sm sm:text-base">
+          <a href="https://shorturl.at/TAN60" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Daily Performance</a>
+          <a href="https://shorturl.at/zxWAo" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Production Performance</a>
+          <a href="https://shorturl.at/CFBzx" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Productivity Performance</a>
+          <a href="https://shorturl.at/WosaC" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Population Unit</a>
+          <a href="https://shorturl.at/c2tJZ" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Shipping and Delivery Unit</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMzQ5ZTYxZGUtOWQxYy00YTkyLWE4ZjQtOGY5YWE5M2IyM2NhIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Operator Daily Productivity</a>
+          <a href="https://shorturl.at/m0xOo" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Last-First Bucket</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMGI3NTM4ZDYtMThkNC00N2NjLWI0ZDUtNGMxMDBjZTVjYzBiIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Rental Equipments</a>
+          <a href="https://shorturl.at/al6Jc" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Position PIT Unit</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiYzE1MTY0NGUtYTFjMC00ZmFmLTk5ZjgtNmYzMjg2MjQ1OWQ5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Event Unit</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMjQ2ZGFkNWMtNjExYS00NDY0LTlkNGYtYzc1NmY1NmEzYWZjIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Data CSIS</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMmI4NGY1ZDktNjk4MS00NjYxLWFlODMtOTQyNmM5YTRmNjE5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">MOVE Dashboard</a>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">&copy; 2024 Mining Optimization Department CK-BIB. All rights reserved.</p>
-        </div>
+      <div class="container mx-auto px-4 text-center text-sm">
+        <p>PT. Ciptakridatama</p>
+        <p>&copy; 2024 Mining Optimization Department CK-BIB. All rights reserved.</p>
+      </div>
     </footer>
+  </div>
+
+  <!-- EXTERNAL SCRIPT -->
+  <script src="login.js"></script>
 </body>
 </html>
