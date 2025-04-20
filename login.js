@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Tunggu animasi selesai, lalu redirect
       setTimeout(() => {
-        window.location.href = "index.html"; // atau index.html
+        window.location.href = "login.html"; // atau index.html
       }, 500); // sesuai durasi animasi (700ms)
     } else {
       errorMsg.style.display = "block";
