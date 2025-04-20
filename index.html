@@ -1,94 +1,41 @@
-<!-- index.html / homepage.html -->
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Homepage - Mining Optimization</title>
+  <title>Login - Mining Optimization</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .error-msg {
+      display: none;
+    }
+  </style>
 </head>
-<body id="body" class="hidden opacity-0 bg-gray-100 text-gray-800 transition-opacity duration-500">
+<body id="body" class="bg-gray-100 text-gray-800 transition-opacity duration-700">
+  <!-- LOGIN SCREEN -->
+  <div class="flex items-center justify-center min-h-screen w-full bg-cover bg-center text-white px-4" style="background-image: url('img/img.png');">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative bg-white text-gray-900 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl w-full max-w-sm z-10">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-center">Login to Access Dashboard</h2>
+      <form id="login-form">
+        <label class="block mb-2 text-sm font-medium">Username</label>
+        <input id="username" type="text" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your username" required />
 
-  <!-- LOGOUT BUTTON -->
-  <div class="absolute top-4 right-4 z-50">
-    <button id="logout-btn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow text-sm sm:text-base">
-      Logout
-    </button>
+        <label class="block mb-2 text-sm font-medium">Password</label>
+        <input id="password" type="password" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your password" required />
+
+        <p id="error" class="error-msg text-red-600 mb-4 text-sm">Invalid username or password</p>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm sm:text-base">Login</button>
+      </form>
+
+      <div class="mt-6 text-center text-xs text-gray-500">
+        PT. Ciptakridatama <br> Mining Optimization CK BIB
+      </div>
+    </div>
   </div>
 
-  <header class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('img/img.png');">
-    <div class="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0"></div>
-    <div class="relative text-center px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Welcome to Mining Optimization CK-BIB</h1>
-      <p class="text-sm sm:text-base md:text-lg mb-6">Optimizing processes for a sustainable mining future</p>
-      <button onclick="document.getElementById('links-section').scrollIntoView({ behavior: 'smooth' });"
-              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md transition duration-300 text-sm sm:text-base">
-        Explore Our Dashboard
-      </button>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 py-10">
-    <section class="text-center mb-10">
-      <h2 class="text-xl sm:text-2xl font-semibold">Explore the Dashboard</h2>
-      <p class="mt-4 text-gray-600 text-sm sm:text-base">Discover tools, insights, and solutions tailored to optimize mining operations effectively and sustainably.</p>
-    </section>
-
-    <!-- LINKS SECTION -->
-    <section id="links-section" class="bg-white shadow-md rounded-2xl p-6 sm:p-8 mx-auto max-w-2xl mt-10">
-      <div class="space-y-4 text-sm sm:text-base">
-        <a href="https://shorturl.at/TAN60" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Daily Performance</a>
-        <a href="https://shorturl.at/zxWAo" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Production Performance</a>
-        <a href="https://shorturl.at/CFBzx" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Productivity Performance</a>
-        <a href="https://shorturl.at/WosaC" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Population Unit</a>
-        <a href="https://shorturl.at/c2tJZ" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Shipping and Delivery Unit</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiMzQ5ZTYxZGUtOWQxYy00YTkyLWE4ZjQtOGY5YWE5M2IyM2NhIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-600 hover:bg-blue-700 py-3 rounded-lg shadow transition duration-300">Monitoring Operator Daily Productivity</a>
-        <a href="https://shorturl.at/m0xOo" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Last-First Bucket</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiMGI3NTM4ZDYtMThkNC00N2NjLWI0ZDUtNGMxMDBjZTVjYzBiIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Rental Equipments</a>
-        <a href="https://shorturl.at/al6Jc" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Position PIT Unit</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiYzE1MTY0NGUtYTFjMC00ZmFmLTk5ZjgtNmYzMjg2MjQ1OWQ5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Event Unit</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiMjQ2ZGFkNWMtNjExYS00NDY0LTlkNGYtYzc1NmY1NmEzYWZjIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">Monitoring Data CSIS</a>
-        <a href="https://app.powerbi.com/view?r=eyJrIjoiMmI4NGY1ZDktNjk4MS00NjYxLWFlODMtOTQyNmM5YTRmNjE5IiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank" class="block text-center text-white bg-blue-500 hover:bg-blue-600 py-2 rounded-md">MOVE Dashboard</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto px-4 text-center text-sm">
-      <p>PT. Ciptakridatama</p>
-      <p>&copy; 2024 Mining Optimization Department CK-BIB. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Login Protection & Transition -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const username = localStorage.getItem("loggedInUser");
-
-      // ⛔ Belum login? Redirect ke login.html
-      if (!username) {
-        window.location.href = "login.html";
-        return;
-      }
-
-      // ✅ Sudah login → tampilkan isi halaman
-      const body = document.getElementById("body");
-      body.classList.remove("hidden");
-      setTimeout(() => body.classList.remove("opacity-0"), 50);
-
-      // Logout Handler
-      const logoutBtn = document.getElementById("logout-btn");
-      if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-          body.classList.add("opacity-0");
-          setTimeout(() => {
-            localStorage.removeItem("loggedInUser");
-            window.location.href = "login.html";
-          }, 500);
-        });
-      }
-    });
-  </script>
-
+  <script src="login.js"></script>
 </body>
 </html>
