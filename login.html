@@ -1,0 +1,41 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Mining Optimization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .error-msg {
+      display: none;
+    }
+  </style>
+</head>
+<body id="body" class="bg-gray-100 text-gray-800 transition-opacity duration-700">
+  <!-- LOGIN SCREEN -->
+  <div class="flex items-center justify-center min-h-screen w-full bg-cover bg-center text-white px-4" style="background-image: url('img/img.png');">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative bg-white text-gray-900 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl w-full max-w-sm z-10">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 text-center">Login to Access Dashboard</h2>
+      <form id="login-form">
+        <label class="block mb-2 text-sm font-medium">Username</label>
+        <input id="username" type="text" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your username" required />
+
+        <label class="block mb-2 text-sm font-medium">Password</label>
+        <input id="password" type="password" class="w-full p-2 mb-4 border rounded border-gray-300" placeholder="Your password" required />
+
+        <p id="error" class="error-msg text-red-600 mb-4 text-sm">Invalid username or password</p>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm sm:text-base">Login</button>
+      </form>
+
+      <div class="mt-6 text-center text-xs text-gray-500">
+        PT. Ciptakridatama <br> Mining Optimization CK BIB
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
