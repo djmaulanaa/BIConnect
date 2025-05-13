@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { username: "51179", password: "ckjuara01" },
     { username: "51364", password: "ckjuara01" },
     { username: "26570", password: "12345" },
-    { username: "MeidiWibowo", password: "12345" }
+    { username: "MeidiWibowo", password: "12345" },
+    { username: "AdrianPurwandha", password: "12345" }
 
   ];
 
