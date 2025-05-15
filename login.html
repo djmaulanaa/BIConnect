@@ -51,15 +51,22 @@
             class="block text-center text-white bg-[#1B56FD] hover:bg-[#0A40D8] py-2 rounded-md">Monthly Performance</a>
         </div>
       </div>
-
       <!-- DROPDOWN 2 -->
       <div class="relative w-full mb-4">
-        <button 
+        <button onclick="toggleDropdown('dropdown-menu-1')" id="dropdown-toggle-1"
           class="w-full text-white bg-[#0118D8] hover:bg-[#0819AA] font-semibold py-3 rounded-lg shadow transition duration-300 text-sm sm:text-base">
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiNWNjYjliOGItM2Y1OS00YmFiLWFjYTItOTJlMjhiNDhkOTYxIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D&pageName=83ac48944335236559a0" target="_blank">
-            Productivity Performance</a>
+          Productivity Performance
         </button>
+        <div id="dropdown-menu-1"
+          class="transform transition-all duration-300 origin-top hidden opacity-0 scale-95 mt-2 space-y-2">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiNWNjYjliOGItM2Y1OS00YmFiLWFjYTItOTJlMjhiNDhkOTYxIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D&pageName=83ac48944335236559a0" target="_blank"
+            class="block text-center text-white bg-[#1B56FD] hover:bg-[#0A40D8] py-2 rounded-md">Pdty Performance HO</a>
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiMTZlY2FlNjUtOWY4NS00NjAzLWFhYzctNTdjMzVmZjA1OTBmIiwidCI6ImI3Y2YzZDc4LTZjYmQtNGFjMi05OTU2LWY2OGFiNjA5NjBiZiIsImMiOjEwfQ%3D%3D" target="_blank"
+            class="block text-center text-white bg-[#1B56FD] hover:bg-[#0A40D8] py-2 rounded-md">Pdty Performance</a>
+        </div>
       </div>
+
+      
       <!-- DROPDOWN 3 -->
       <div class="relative w-full mb-4">
         <button onclick="toggleDropdown('dropdown-menu-2')" id="dropdown-toggle-2"
